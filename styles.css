@@ -1,0 +1,239 @@
+:root {
+  --primario: rgba(0, 81, 139, 1);
+  --primario10: rgba(74, 125, 187, 1);
+  --primario-10: rgba(0, 41, 93, 1);
+  --on-primario: rgba(245, 245, 245, 1);
+  --on-primario-bajada: rgba(255, 255, 255, 0.6);
+  
+  --secundario: rgba(0, 147, 171, 1);
+  --secundario10: rgba(86, 196, 221, 1);
+  --secundario-10: rgba(0, 101, 124, 1);
+  --on-secundario: rgba(255, 255, 255, 1);
+  --on-secundario-bajada: rgba(255, 255, 255, 0.6);
+  
+  --terciario: rgba(254, 203, 25, 1);
+  --terciario10: rgba(255, 254, 88, 1);
+  --terciario-10: rgba(198, 155, 0, 1);
+  --on-terciario: rgba(66, 66, 66, 1);
+  --on-terciario-bajada: rgba(0, 0, 0, 0.6);
+  
+  --ok: rgba(168, 235, 16, 1);
+  --error: #b00020;
+  
+  --aplicacion: rgba(242, 245, 248, 1); /* Slightly bluish light gray for modern depth */
+  --on-aplicacion: rgba(26, 32, 44, 1);
+  --on-aplicacion-bajada: rgba(74, 85, 104, 1);
+  
+  --formulario: rgba(255, 255, 255, 1);
+  
+  /* Modern Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 41, 93, 0.05);
+  --shadow-md: 0 10px 25px rgba(0, 41, 93, 0.08);
+  --shadow-hover: 0 20px 40px rgba(0, 81, 139, 0.12);
+  
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--aplicacion);
+  color: var(--on-aplicacion);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+/* Header Moderno con Gradiente */
+.header {
+  background: linear-gradient(135deg, var(--primario-10) 0%, var(--primario) 100%);
+  color: var(--on-primario);
+  padding: 4rem 0 6rem 0; /* Padding extra abajo para efecto superpuesto */
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  color: var(--on-primario-bajada);
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+/* Ajuste del main para superponerse al header */
+main.container {
+  margin-top: -4rem;
+  flex: 1;
+}
+
+/* Grilla de agentes */
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+
+/* Tarjeta del agente */
+.agent-card {
+  background-color: var(--formulario);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(10px);
+}
+
+.agent-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--secundario), var(--secundario10));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.agent-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.agent-card:hover::before {
+  opacity: 1;
+}
+
+.agent-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, rgba(0, 147, 171, 0.1), rgba(0, 81, 139, 0.05));
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  color: var(--primario);
+}
+
+.agent-card h2 {
+  color: var(--primario-10);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.agent-card p {
+  color: var(--on-aplicacion-bajada);
+  font-size: 1rem;
+  flex-grow: 1;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.agent-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--secundario) 0%, var(--secundario-10) 100%);
+  color: var(--on-secundario);
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 147, 171, 0.3);
+}
+
+.agent-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 147, 171, 0.4);
+}
+
+.agent-button:active {
+  transform: scale(0.98);
+}
+
+/* Status Indicator */
+.status-badge {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primario);
+  background: rgba(168, 235, 16, 0.15);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--ok);
+  box-shadow: 0 0 8px var(--ok);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--on-aplicacion-bajada);
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.agent-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.agent-card:nth-child(1) { animation-delay: 0.1s; }
+.agent-card:nth-child(2) { animation-delay: 0.2s; }
+.agent-card:nth-child(3) { animation-delay: 0.3s; }

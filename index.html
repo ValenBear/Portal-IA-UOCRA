@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA UOCRA | Portal de Agentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Portal IA UOCRA</h1>
+            <p>Directorio centralizado de agentes inteligentes de nuestra organización</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Contenedor donde JavaScript inyectará dinámicamente las tarjetas de los agentes -->
+        <section class="agents-grid" id="agents-grid">
+            <!-- Loader inicial mientras carga JS -->
+            <p style="color: var(--on-aplicacion-bajada);">Cargando directorio de agentes...</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 UOCRA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
