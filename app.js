@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "presmed",
             name: "Agente Presmed",
             description: "Asistente inteligente para consultas y trámites de prestaciones médicas.",
-            path: "https://ia.uocra.net/AgentePresmed/",
+            path: "http://localhost:8100/agente-presmed-ui/",
             icon: "🏥",
             status: "online"
         },
@@ -12,8 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "cau",
             name: "Agente CAU",
             description: "Centro de Atención al Usuario. Asistencia rápida para consultas generales.",
-            path: "https://ia.uocra.net/AgenteCAU/",
+            path: "http://localhost:8100/agente-cau-ui/",
             icon: "🎧",
+            status: "online"
+        },
+        {
+            id: "0800",
+            name: "Agente 0800",
+            description: "Asistente virtual para la línea telefónica 0800. Atención automatizada de consultas.",
+            path: "http://localhost:8100/agente-0800-ui/",
+            icon: "📞",
             status: "online"
         },
         {
@@ -87,4 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     renderAgents();
+
+    // Scroll animation for logo
+    const portalLogo = document.getElementById('portal-logo');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            portalLogo.classList.add('shrunk');
+        } else {
+            portalLogo.classList.remove('shrunk');
+        }
+    });
 });
